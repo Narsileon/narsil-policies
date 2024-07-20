@@ -73,20 +73,5 @@ final class PoliciesService
         return $permissionName;
     }
 
-    /**
-     * @param string $modelClass
-     * @param string $ability
-     *
-     * @return bool
-     */
-    public static function hasPermissionTo(string $modelClass, string $ability): bool
-    {
-        $permission = static::getPermissionName($modelClass, $ability);
-
-        $checked = Auth::user()?->can($permission);
-
-        return $checked;
-    }
-
     #endregion
 }
