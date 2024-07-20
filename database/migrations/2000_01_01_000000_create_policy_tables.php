@@ -50,12 +50,16 @@ return new class extends Migration
     {
         Schema::create(Permission::TABLE, function (Blueprint $table)
         {
-            $table->resource();
+            $table->id();
 
+            $table->boolean(Permission::ACTIVE)
+                ->default(true);
             $table->string(Permission::NAME)
                 ->unique();
             $table->string(Permission::TYPE)
                 ->default(PermissionEnum::PAGE);
+
+            $table->timestamps();
         });
     }
 
@@ -66,13 +70,17 @@ return new class extends Migration
     {
         Schema::create(Role::TABLE, function (Blueprint $table)
         {
-            $table->resource();
+            $table->id();
 
+            $table->boolean(Role::ACTIVE)
+                ->default(true);
             $table->string(Role::NAME)
                 ->unique();
             $table->integer(Role::LEVEL)
                 ->default(0);
             $table->trans(Role::LABEL);
+
+            $table->timestamps();
         });
     }
 
