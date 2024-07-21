@@ -23,6 +23,8 @@ final class NarsilPoliciesServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $this->bootMigrations();
+
         Gate::before([$this, 'before']);
         Gate::guessPolicyNamesUsing([$this, 'guessPolicyNames']);
     }
@@ -62,6 +64,20 @@ final class NarsilPoliciesServiceProvider extends ServiceProvider
         }
 
         return $policy;
+    }
+
+    #endregion
+
+    #region PRIVATE METHODS
+
+    /**
+     * @return void
+     */
+    private function bootMigrations(): void
+    {
+        $this->loadMigrationsFrom([
+            __DIR__ . '/../database/migrations',
+        ]);
     }
 
     #endregion
