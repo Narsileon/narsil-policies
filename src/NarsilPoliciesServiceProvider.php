@@ -6,7 +6,7 @@ namespace Narsil\Policies;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
-use Narsil\NarsilFramework\Commands\Database\SyncPermissionsCommand;
+use Narsil\Policies\Commands\SyncPermissionsCommand;
 
 #endregion
 

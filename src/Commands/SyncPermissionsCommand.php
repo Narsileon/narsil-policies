@@ -1,6 +1,6 @@
 <?php
 
-namespace Narsil\NarsilFramework\Commands\Database;
+namespace Narsil\Policies\Commands;
 
 #region USE
 
