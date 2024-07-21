@@ -26,7 +26,6 @@ final class NarsilPoliciesServiceProvider extends ServiceProvider
         $this->bootMigrations();
 
         Gate::before([$this, 'before']);
-        Gate::guessPolicyNamesUsing([$this, 'guessPolicyNames']);
     }
 
     /**
@@ -45,25 +44,6 @@ final class NarsilPoliciesServiceProvider extends ServiceProvider
         {
             return $user->hasPermission($ability);
         }
-    }
-
-    /**
-     * @param string $modelClass
-     *
-     * @return string
-     */
-    public function guessPolicyNames(string $modelClass): string
-    {
-        $classBaseName = class_basename($modelClass);
-
-        $policy = "Narsil\\Framework\\Policies\\{$classBaseName}Policy";
-
-        if (!class_exists($policy))
-        {
-            $policy = "App\\Policies\\{$classBaseName}Policy";
-        }
-
-        return $policy;
     }
 
     #endregion

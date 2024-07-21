@@ -7,6 +7,7 @@ namespace Narsil\Policies\Services;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Log;
 
 #endregion
 
@@ -68,6 +69,7 @@ final class PoliciesService
         }
         catch (Exception $exception)
         {
+            Log::error($exception->getMessage());
         }
 
         return $permissionName;
