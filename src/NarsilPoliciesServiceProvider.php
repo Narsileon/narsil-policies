@@ -6,6 +6,7 @@ namespace Narsil\Policies;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
+use Narsil\NarsilFramework\Commands\Database\SyncPermissionsCommand;
 
 #endregion
 
@@ -23,6 +24,7 @@ final class NarsilPoliciesServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $this->bootCommands();
         $this->bootMigrations();
 
         Gate::before([$this, 'before']);
@@ -49,6 +51,16 @@ final class NarsilPoliciesServiceProvider extends ServiceProvider
     #endregion
 
     #region PRIVATE METHODS
+
+    /**
+     * @return void
+     */
+    private function bootCommands(): void
+    {
+        $this->commands([
+            SyncPermissionsCommand::class,
+        ]);
+    }
 
     /**
      * @return void
