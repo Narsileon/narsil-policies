@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Auth;
+use Narsil\Localization\Casts\TransAttribute;
 use Narsil\Policies\Enums\PermissionEnum;
 use Narsil\Policies\Interfaces\IHasPermissions;
 use Narsil\Policies\Interfaces\IHasRoles;
@@ -37,6 +38,10 @@ class Role extends Model implements IHasPermissions
     public function __construct(array $attributes = [])
     {
         $this->table = self::TABLE;
+
+        $this->casts = [
+            self::LABEL => TransAttribute::class,
+        ];
 
         $this->fillable = [
             self::ACTIVE,
