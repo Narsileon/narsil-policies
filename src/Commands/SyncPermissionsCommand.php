@@ -75,19 +75,26 @@ class SyncPermissionsCommand extends Command
 
         foreach ($policies as $model => $policy)
         {
-            if ($policy->canView)
+            if (!class_exists($policy))
+            {
+                continue;
+            }
+
+            $policyInstance = new $policy();
+
+            if ($policyInstance->canView)
             {
                 $this->createModelPermission($model, 'view');
             }
-            if ($policy->canCreate)
+            if ($policyInstance->canCreate)
             {
                 $this->createModelPermission($model, 'create');
             }
-            if ($policy->canUpdate)
+            if ($policyInstance->canUpdate)
             {
                 $this->createModelPermission($model, 'update');
             }
-            if ($policy->canDelete)
+            if ($policyInstance->canDelete)
             {
                 $this->createModelPermission($model, 'delete');
             }
