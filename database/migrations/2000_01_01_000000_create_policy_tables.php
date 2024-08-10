@@ -50,16 +50,19 @@ return new class extends Migration
     {
         Schema::create(Permission::TABLE, function (Blueprint $table)
         {
-            $table->id();
-
-            $table->boolean(Permission::ACTIVE)
+            $table
+                ->id(Permission::ID);
+            $table
+                ->boolean(Permission::ACTIVE)
                 ->default(true);
-            $table->string(Permission::NAME)
+            $table
+                ->string(Permission::NAME)
                 ->unique();
-            $table->string(Permission::TYPE)
+            $table
+                ->string(Permission::TYPE)
                 ->default(PermissionEnum::PAGE);
-
-            $table->timestamps();
+            $table
+                ->timestamps();
         });
     }
 
@@ -70,17 +73,21 @@ return new class extends Migration
     {
         Schema::create(Role::TABLE, function (Blueprint $table)
         {
-            $table->id();
-
-            $table->boolean(Role::ACTIVE)
+            $table
+                ->id(Role::ID);
+            $table
+                ->boolean(Role::ACTIVE)
                 ->default(true);
-            $table->string(Role::NAME)
+            $table
+                ->string(Role::NAME)
                 ->unique();
-            $table->integer(Role::LEVEL)
+            $table
+                ->integer(Role::LEVEL)
                 ->default(0);
-            $table->trans(Role::LABEL);
-
-            $table->timestamps();
+            $table
+                ->trans(Role::LABEL);
+            $table
+                ->timestamps();
         });
     }
 
@@ -91,10 +98,12 @@ return new class extends Migration
     {
         Schema::create(ModelHasPermission::TABLE, function (Blueprint $table)
         {
-            $table->id();
-
-            $table->morphs(ModelHasRole::RELATIONSHIP_MODEL);
-            $table->foreignId(ModelHasPermission::PERMISSION_ID)
+            $table
+                ->id(ModelHasPermission::ID);
+            $table
+                ->morphs(ModelHasRole::RELATIONSHIP_MODEL);
+            $table
+                ->foreignId(ModelHasPermission::PERMISSION_ID)
                 ->constrained(Permission::TABLE, Permission::ID)
                 ->cascadeOnDelete();
         });
@@ -107,10 +116,12 @@ return new class extends Migration
     {
         Schema::create(ModelHasRole::TABLE, function (Blueprint $table)
         {
-            $table->id();
-
-            $table->morphs(ModelHasRole::RELATIONSHIP_MODEL);
-            $table->foreignId(ModelHasRole::ROLE_ID)
+            $table
+                ->id(ModelHasRole::ID);
+            $table
+                ->morphs(ModelHasRole::RELATIONSHIP_MODEL);
+            $table
+                ->foreignId(ModelHasRole::ROLE_ID)
                 ->constrained(Role::TABLE, Role::ID)
                 ->cascadeOnDelete();
         });
