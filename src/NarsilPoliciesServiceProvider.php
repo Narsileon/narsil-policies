@@ -7,6 +7,8 @@ namespace Narsil\Policies;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Narsil\Policies\Commands\SyncPermissionsCommand;
+use Narsil\Policies\Models\Role;
+use Narsil\Policies\Policies\RolePolicy;
 
 #endregion
 
@@ -26,6 +28,7 @@ final class NarsilPoliciesServiceProvider extends ServiceProvider
     {
         $this->bootCommands();
         $this->bootMigrations();
+        $this->bootPolicies();
 
         Gate::before([$this, 'before']);
     }
@@ -70,6 +73,14 @@ final class NarsilPoliciesServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom([
             __DIR__ . '/../database/migrations',
         ]);
+    }
+
+    /**
+     * @return void
+     */
+    private function bootPolicies(): void
+    {
+        Gate::policy(Role::class, RolePolicy::class);
     }
 
     #endregion
