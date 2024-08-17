@@ -1,6 +1,6 @@
 <?php
 
-namespace Narsil\Menus\Http\Menus;
+namespace Narsil\Policies\Http\Menus;
 
 #region USE
 
