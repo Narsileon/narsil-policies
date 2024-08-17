@@ -40,6 +40,7 @@ class Role extends Model implements IHasPermissions
         $this->table = self::TABLE;
 
         $this->casts = [
+            self::ACTIVE => 'boolean',
             self::LABEL => TransAttribute::class,
         ];
 

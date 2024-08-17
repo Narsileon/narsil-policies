@@ -29,6 +29,7 @@ class Permission extends Model
         $this->table = self::TABLE;
 
         $this->casts =  [
+            self::ACTIVE => 'boolean',
             self::TYPE => PermissionEnum::class,
         ];
 
