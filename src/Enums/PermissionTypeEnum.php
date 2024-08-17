@@ -2,7 +2,7 @@
 
 namespace Narsil\Policies\Enums;
 
-enum PermissionEnum: string
+enum PermissionTypeEnum: string
 {
     case FUNCTION = 'function';
     case PAGE = 'page';

@@ -5,7 +5,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Narsil\Policies\Enums\PermissionEnum;
+use Narsil\Policies\Enums\PermissionTypeEnum;
 use Narsil\Policies\Models\ModelHasPermission;
 use Narsil\Policies\Models\ModelHasRole;
 use Narsil\Policies\Models\Permission;
@@ -60,7 +60,7 @@ return new class extends Migration
                 ->unique();
             $table
                 ->string(Permission::TYPE)
-                ->default(PermissionEnum::PAGE);
+                ->default(PermissionTypeEnum::PAGE);
             $table
                 ->timestamps();
         });

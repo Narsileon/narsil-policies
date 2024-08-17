@@ -29,6 +29,7 @@ final class NarsilPoliciesServiceProvider extends ServiceProvider
         $this->bootCommands();
         $this->bootMigrations();
         $this->bootPolicies();
+        $this->bootTranslations();
 
         Gate::before([$this, 'before']);
     }
@@ -82,6 +83,15 @@ final class NarsilPoliciesServiceProvider extends ServiceProvider
     {
         Gate::policy(Role::class, RolePolicy::class);
     }
+
+    /**
+     * @return void
+     */
+    private function bootTranslations(): void
+    {
+        $this->loadJsonTranslationsFrom(__DIR__ . '/../lang', 'policies');
+    }
+
 
     #endregion
 }

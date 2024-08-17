@@ -6,7 +6,7 @@ namespace Narsil\Policies\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Gate;
-use Narsil\Policies\Enums\PermissionEnum;
+use Narsil\Policies\Enums\PermissionTypeEnum;
 use Narsil\Policies\Models\Permission;
 use Narsil\Policies\Services\PoliciesService;
 
@@ -62,7 +62,7 @@ class SyncPermissionsCommand extends Command
 
         Permission::firstOrCreate([
             Permission::NAME => $permission,
-            Permission::TYPE => PermissionEnum::PAGE->value,
+            Permission::TYPE => PermissionTypeEnum::PAGE->value,
         ]);
     }
 

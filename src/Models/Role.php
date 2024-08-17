@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Auth;
 use Narsil\Localization\Casts\TransAttribute;
-use Narsil\Policies\Enums\PermissionEnum;
+use Narsil\Policies\Enums\PermissionTypeEnum;
 use Narsil\Policies\Interfaces\IHasPermissions;
 use Narsil\Policies\Interfaces\IHasRoles;
 use Narsil\Policies\Observers\RoleObserver;
@@ -116,7 +116,7 @@ class Role extends Model implements IHasPermissions
     final public function getFunctionsAttribute(): array
     {
         return collect($this->{self::RELATIONSHIP_PERMISSIONS})
-            ->where(Permission::TYPE, '=', PermissionEnum::FUNCTION)
+            ->where(Permission::TYPE, '=', PermissionTypeEnum::FUNCTION)
             ->pluck(Permission::NAME)
             ->toArray();
     }
@@ -127,7 +127,7 @@ class Role extends Model implements IHasPermissions
     final public function getPagesAttribute(): array
     {
         return collect($this->{self::RELATIONSHIP_PERMISSIONS})
-            ->where(Permission::TYPE, '=', PermissionEnum::PAGE)
+            ->where(Permission::TYPE, '=', PermissionTypeEnum::PAGE)
             ->pluck(Permission::NAME)
             ->toArray();
     }

@@ -6,7 +6,7 @@ namespace Narsil\Policies\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Narsil\Policies\Enums\PermissionEnum;
+use Narsil\Policies\Enums\PermissionTypeEnum;
 
 #endregion
 
@@ -30,7 +30,7 @@ class Permission extends Model
 
         $this->casts =  [
             self::ACTIVE => 'boolean',
-            self::TYPE => PermissionEnum::class,
+            self::TYPE => PermissionTypeEnum::class,
         ];
 
         $this->fillable = [
