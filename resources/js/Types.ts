@@ -1,4 +1,4 @@
-type ModelHasPermissionModel = {
+export type ModelHasPermissionModel = {
 	id: number;
 	model_id: number;
 	model_type: string;
@@ -6,7 +6,7 @@ type ModelHasPermissionModel = {
 	permission: PermissionModel;
 };
 
-type ModelHasRoleModel = {
+export type ModelHasRoleModel = {
 	id: number;
 	model_id: number;
 	model_type: string;
@@ -14,7 +14,7 @@ type ModelHasRoleModel = {
 	role: RoleModel;
 };
 
-type PermissionModel = {
+export type PermissionModel = {
 	active: boolean;
 	created_at: string;
 	id: number;
@@ -23,7 +23,7 @@ type PermissionModel = {
 	updated_at: string;
 };
 
-type RoleModel = {
+export type RoleModel = {
 	active: boolean;
 	created_at: string;
 	id: number;
