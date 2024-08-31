@@ -29,6 +29,7 @@ final class NarsilPoliciesServiceProvider extends ServiceProvider
         $this->bootCommands();
         $this->bootMigrations();
         $this->bootPolicies();
+        $this->bootPublishes();
         $this->bootTranslations();
 
         Gate::before([$this, 'before']);
@@ -82,6 +83,16 @@ final class NarsilPoliciesServiceProvider extends ServiceProvider
     private function bootPolicies(): void
     {
         Gate::policy(Role::class, RolePolicy::class);
+    }
+
+    /**
+     * @return void
+     */
+    private function bootPublishes(): void
+    {
+        $this->publishes([
+            __DIR__ . '/Config' => config_path(),
+        ], 'config');
     }
 
     /**

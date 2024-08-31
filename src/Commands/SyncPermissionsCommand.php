@@ -5,7 +5,9 @@ namespace Narsil\Policies\Commands;
 #region USE
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Gate;
+use Narsil\Policies\Constants\PoliciesConfig;
 use Narsil\Policies\Enums\PermissionTypeEnum;
 use Narsil\Policies\Models\Permission;
 use Narsil\Policies\Services\PoliciesService;
@@ -41,7 +43,9 @@ class SyncPermissionsCommand extends Command
      */
     public function handle(): void
     {
-        $this->createModelsPermissions();
+        $this->createFunctionPermissions();
+        $this->createModelPermissions();
+        $this->createPagePermissions();
 
         $this->info('Permissions table has been successfully synced with the model policies.');
     }
@@ -49,6 +53,22 @@ class SyncPermissionsCommand extends Command
     #endregion
 
     #region PRIVATE METHODS
+
+    /**
+     * @return void
+     */
+    private function createFunctionPermissions(): void
+    {
+        $permissions = Config::get(PoliciesConfig::FUNCTIONS, []);
+
+        foreach ($permissions as $permission)
+        {
+            Permission::firstOrCreate([
+                Permission::NAME => $permission,
+                Permission::TYPE => PermissionTypeEnum::FUNCTION->value,
+            ]);
+        }
+    }
 
     /**
      * @param string $modelClass
@@ -69,7 +89,7 @@ class SyncPermissionsCommand extends Command
     /**
      * @return void
      */
-    private function createModelsPermissions(): void
+    private function createModelPermissions(): void
     {
         $policies = Gate::policies();
 
@@ -98,6 +118,22 @@ class SyncPermissionsCommand extends Command
             {
                 $this->createModelPermission($model, 'delete');
             }
+        }
+    }
+
+    /**
+     * @return void
+     */
+    private function createPagePermissions(): void
+    {
+        $permissions = Config::get(PoliciesConfig::PAGES, []);
+
+        foreach ($permissions as $permission)
+        {
+            Permission::firstOrCreate([
+                Permission::NAME => $permission,
+                Permission::TYPE => PermissionTypeEnum::PAGE->value,
+            ]);
         }
     }
 
