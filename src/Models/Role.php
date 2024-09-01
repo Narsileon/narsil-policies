@@ -10,11 +10,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Auth;
 use Narsil\Localization\Casts\TransAttribute;
+use Narsil\Localization\Interfaces\IHasTranslations;
+use Narsil\Localization\Traits\HasTranslations;
 use Narsil\Policies\Enums\PermissionTypeEnum;
 use Narsil\Policies\Interfaces\IHasPermissions;
 use Narsil\Policies\Interfaces\IHasRoles;
 use Narsil\Policies\Observers\RoleObserver;
 use Narsil\Policies\Traits\HasPermissions;
+use Narsil\Tables\Constants\Types;
 
 #endregion
 
@@ -24,9 +27,10 @@ use Narsil\Policies\Traits\HasPermissions;
  *
  * @author Jonathan Rigaux
  */
-class Role extends Model implements IHasPermissions
+class Role extends Model implements IHasPermissions, IHasTranslations
 {
     use HasPermissions;
+    use HasTranslations;
 
     #region CONSTRUCTOR
 
@@ -40,7 +44,7 @@ class Role extends Model implements IHasPermissions
         $this->table = self::TABLE;
 
         $this->casts = [
-            self::ACTIVE => 'boolean',
+            self::ACTIVE => Types::BOOLEAN,
             self::LABEL => TransAttribute::class,
         ];
 
