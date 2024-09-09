@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "38eefb3e9bbea5163d4f9c8d082329ee",
+    "content-hash": "ad31a83271d0720bcfc1d556780d7eac",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -2164,16 +2164,10 @@
         {
             "name": "narsil/auth",
             "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Narsileon/narsil-auth.git",
-                "reference": "6d4015e45b382cd55ad52bb66dd71d7da7623df3"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Narsileon/narsil-auth/zipball/6d4015e45b382cd55ad52bb66dd71d7da7623df3",
-                "reference": "6d4015e45b382cd55ad52bb66dd71d7da7623df3",
-                "shasum": ""
+                "type": "path",
+                "url": "../narsil-auth",
+                "reference": "18c8079fdad98ee0b9ee693e0c6d2f0bb13cc57b"
             },
             "require": {
                 "inertiajs/inertia-laravel": "^1.0",
@@ -2191,7 +2185,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^11.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -2222,25 +2215,17 @@
                 "php",
                 "react"
             ],
-            "support": {
-                "source": "https://github.com/Narsileon/narsil-auth/tree/main",
-                "issues": "https://github.com/Narsileon/narsil-auth/issues"
-            },
-            "time": "2024-09-09T07:41:13+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "narsil/forms",
             "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Narsileon/narsil-forms.git",
-                "reference": "54dfdafa722f2f56597a59677533c72803b9510c"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Narsileon/narsil-forms/zipball/54dfdafa722f2f56597a59677533c72803b9510c",
-                "reference": "54dfdafa722f2f56597a59677533c72803b9510c",
-                "shasum": ""
+                "type": "path",
+                "url": "../narsil-forms",
+                "reference": "d8256e660f6a195427cdf162969b19cd00ea09d5"
             },
             "require": {
                 "laravel/framework": "^11.3",
@@ -2253,7 +2238,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^11.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -2285,25 +2269,17 @@
                 "php",
                 "react"
             ],
-            "support": {
-                "source": "https://github.com/Narsileon/narsil-forms/tree/main",
-                "issues": "https://github.com/Narsileon/narsil-forms/issues"
-            },
-            "time": "2024-09-08T13:03:43+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "narsil/localization",
             "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Narsileon/narsil-localization.git",
-                "reference": "9ff4cda8f2f653bb03a972ecc086c3bddb8b078f"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Narsileon/narsil-localization/zipball/9ff4cda8f2f653bb03a972ecc086c3bddb8b078f",
-                "reference": "9ff4cda8f2f653bb03a972ecc086c3bddb8b078f",
-                "shasum": ""
+                "type": "path",
+                "url": "../narsil-localization",
+                "reference": "b707c42ef8603fa79bf46cccbd3e6091c339c479"
             },
             "require": {
                 "laravel/framework": "^11.3",
@@ -2317,7 +2293,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^11.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -2348,25 +2323,17 @@
                 "react",
                 "translations"
             ],
-            "support": {
-                "source": "https://github.com/Narsileon/narsil-localization/tree/main",
-                "issues": "https://github.com/Narsileon/narsil-localization/issues"
-            },
-            "time": "2024-09-08T11:17:47+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "narsil/menus",
             "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Narsileon/narsil-menus.git",
-                "reference": "1c6e84d968e3a2508cf41aecc77e6aa9fbdb91f2"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Narsileon/narsil-menus/zipball/1c6e84d968e3a2508cf41aecc77e6aa9fbdb91f2",
-                "reference": "1c6e84d968e3a2508cf41aecc77e6aa9fbdb91f2",
-                "shasum": ""
+                "type": "path",
+                "url": "../narsil-menus",
+                "reference": "08c48ff391aaa23b9f1e4a78e3ba168cdc1f70bd"
             },
             "require": {
                 "laravel/framework": "^11.3",
@@ -2380,7 +2347,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^11.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -2411,25 +2377,17 @@
                 "php",
                 "react"
             ],
-            "support": {
-                "source": "https://github.com/Narsileon/narsil-menus/tree/main",
-                "issues": "https://github.com/Narsileon/narsil-menus/issues"
-            },
-            "time": "2024-09-09T07:40:53+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "narsil/settings",
             "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Narsileon/narsil-settings.git",
-                "reference": "3b6ea6a6eee2af06c15e11399dc3c9bee618108b"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Narsileon/narsil-settings/zipball/3b6ea6a6eee2af06c15e11399dc3c9bee618108b",
-                "reference": "3b6ea6a6eee2af06c15e11399dc3c9bee618108b",
-                "shasum": ""
+                "type": "path",
+                "url": "../narsil-settings",
+                "reference": "3b6ea6a6eee2af06c15e11399dc3c9bee618108b"
             },
             "require": {
                 "laravel/framework": "^11.3",
@@ -2439,7 +2397,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^11.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -2470,25 +2427,17 @@
                 "react",
                 "settings"
             ],
-            "support": {
-                "source": "https://github.com/Narsileon/narsil-settings/tree/main",
-                "issues": "https://github.com/Narsileon/narsil-settings/issues"
-            },
-            "time": "2024-09-01T07:36:48+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "narsil/storage",
             "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Narsileon/narsil-storage.git",
-                "reference": "16af73467f18061459cb20d22e6412905db96804"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Narsileon/narsil-storage/zipball/16af73467f18061459cb20d22e6412905db96804",
-                "reference": "16af73467f18061459cb20d22e6412905db96804",
-                "shasum": ""
+                "type": "path",
+                "url": "../narsil-storage",
+                "reference": "16af73467f18061459cb20d22e6412905db96804"
             },
             "require": {
                 "laravel/framework": "^11.3",
@@ -2498,7 +2447,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^11.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -2529,25 +2477,17 @@
                 "react",
                 "storage"
             ],
-            "support": {
-                "source": "https://github.com/Narsileon/narsil-storage/tree/main",
-                "issues": "https://github.com/Narsileon/narsil-storage/issues"
-            },
-            "time": "2024-09-07T15:03:42+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "narsil/tables",
             "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Narsileon/narsil-tables.git",
-                "reference": "0638cf79e085380764d8661381a0f92b592b8697"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Narsileon/narsil-tables/zipball/0638cf79e085380764d8661381a0f92b592b8697",
-                "reference": "0638cf79e085380764d8661381a0f92b592b8697",
-                "shasum": ""
+                "type": "path",
+                "url": "../narsil-tables",
+                "reference": "0638cf79e085380764d8661381a0f92b592b8697"
             },
             "require": {
                 "laravel/framework": "^11.3",
@@ -2560,7 +2500,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^11.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -2592,25 +2531,17 @@
                 "table",
                 "tables"
             ],
-            "support": {
-                "source": "https://github.com/Narsileon/narsil-tables/tree/main",
-                "issues": "https://github.com/Narsileon/narsil-tables/issues"
-            },
-            "time": "2024-09-08T14:08:16+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "narsil/tree",
             "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Narsileon/narsil-tree.git",
-                "reference": "77355c46b624c7ae0a9afc6e24376bea1fccca33"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Narsileon/narsil-tree/zipball/77355c46b624c7ae0a9afc6e24376bea1fccca33",
-                "reference": "77355c46b624c7ae0a9afc6e24376bea1fccca33",
-                "shasum": ""
+                "type": "path",
+                "url": "../narsil-tree",
+                "reference": "0059ad28fe1e54f753f85497a8ae1dfcbf1eeec3"
             },
             "require": {
                 "laravel/framework": "^11.3",
@@ -2621,7 +2552,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^11.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -2652,25 +2582,17 @@
                 "react",
                 "tree"
             ],
-            "support": {
-                "source": "https://github.com/Narsileon/narsil-tree/tree/main",
-                "issues": "https://github.com/Narsileon/narsil-tree/issues"
-            },
-            "time": "2024-08-26T11:38:21+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "narsil/ui",
             "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Narsileon/narsil-ui.git",
-                "reference": "8960879abbc708bba98371c196ee506eff688257"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Narsileon/narsil-ui/zipball/8960879abbc708bba98371c196ee506eff688257",
-                "reference": "8960879abbc708bba98371c196ee506eff688257",
-                "shasum": ""
+                "type": "path",
+                "url": "../narsil-ui",
+                "reference": "8960879abbc708bba98371c196ee506eff688257"
             },
             "require": {
                 "inertiajs/inertia-laravel": "^1.3",
@@ -2682,7 +2604,6 @@
             "require-dev": {
                 "phpunit/phpunit": "^11.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -2713,11 +2634,9 @@
                 "react",
                 "ui"
             ],
-            "support": {
-                "source": "https://github.com/Narsileon/narsil-ui/tree/main",
-                "issues": "https://github.com/Narsileon/narsil-ui/issues"
-            },
-            "time": "2024-09-09T07:41:44+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "nesbot/carbon",
