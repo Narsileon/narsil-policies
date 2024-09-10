@@ -46,6 +46,27 @@ abstract class AbstractPolicy
 
     #endregion
 
+    #region CONSTANTS
+
+    /**
+     * @var string
+     */
+    final public const CREATE = 'create';
+    /**
+     * @var string
+     */
+    final public const DELETE = 'delete';
+    /**
+     * @var string
+     */
+    final public const UPDATE = 'update';
+    /**
+     * @var string
+     */
+    final public const VIEW = 'view';
+
+    #endregion
+
     #region PROPERTIES
 
     /**
@@ -79,23 +100,6 @@ abstract class AbstractPolicy
      *
      * @return bool
      */
-    final public function view($user): bool
-    {
-        if (!$this->canView)
-        {
-            return false;
-        }
-
-        $permission = PoliciesService::getPermissionName($this->modelClass, 'view');
-
-        return $user?->can($permission);
-    }
-
-    /**
-     * @param $user
-     *
-     * @return bool
-     */
     final public function create($user): bool
     {
         if (!$this->canCreate)
@@ -103,24 +107,7 @@ abstract class AbstractPolicy
             return false;
         }
 
-        $permission = PoliciesService::getPermissionName($this->modelClass, 'create');
-
-        return $user?->can($permission);
-    }
-
-    /**
-     * @param $user
-     *
-     * @return bool
-     */
-    final public function update($user): bool
-    {
-        if (!$this->canUpdate)
-        {
-            return false;
-        }
-
-        $permission = PoliciesService::getPermissionName($this->modelClass, 'update');
+        $permission = PoliciesService::getPermissionName($this->modelClass, self::CREATE);
 
         return $user?->can($permission);
     }
@@ -137,7 +124,54 @@ abstract class AbstractPolicy
             return false;
         }
 
-        $permission = PoliciesService::getPermissionName($this->modelClass, 'delete');
+        $permission = PoliciesService::getPermissionName($this->modelClass, self::DELETE);
+
+        return $user?->can($permission);
+    }
+
+    /**
+     * @return array
+     */
+    final public function getAbilities(): array
+    {
+        return [
+            self::CREATE => $this->canCreate,
+            self::DELETE => $this->canDelete,
+            self::UPDATE => $this->canUpdate,
+            self::VIEW => $this->canView,
+        ];
+    }
+
+    /**
+     * @param $user
+     *
+     * @return bool
+     */
+    final public function update($user): bool
+    {
+        if (!$this->canUpdate)
+        {
+            return false;
+        }
+
+        $permission = PoliciesService::getPermissionName($this->modelClass, self::UPDATE);
+
+        return $user?->can($permission);
+    }
+
+    /**
+     * @param $user
+     *
+     * @return bool
+     */
+    final public function view($user): bool
+    {
+        if (!$this->canView)
+        {
+            return false;
+        }
+
+        $permission = PoliciesService::getPermissionName($this->modelClass, self::VIEW);
 
         return $user?->can($permission);
     }
