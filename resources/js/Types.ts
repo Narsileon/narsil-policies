@@ -1,3 +1,10 @@
+export type AbilitiesType = {
+	create: boolean;
+	delete: boolean;
+	update: boolean;
+	view: boolean;
+};
+
 export type ModelHasPermissionModel = {
 	id: number;
 	model_id: number;
