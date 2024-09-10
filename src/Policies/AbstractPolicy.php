@@ -93,7 +93,24 @@ abstract class AbstractPolicy
 
     #endregion
 
-    #region PUBLIC METHODS
+    #region AUTHORIZATIONS
+
+    /**
+     * @param $user
+     *
+     * @return bool
+     */
+    final public function view($user): bool
+    {
+        if (!$this->canView)
+        {
+            return false;
+        }
+
+        $permission = PoliciesService::getPermissionName($this->modelClass, self::VIEW);
+
+        return $user?->can($permission);
+    }
 
     /**
      * @param $user
@@ -110,36 +127,6 @@ abstract class AbstractPolicy
         $permission = PoliciesService::getPermissionName($this->modelClass, self::CREATE);
 
         return $user?->can($permission);
-    }
-
-    /**
-     * @param $user
-     *
-     * @return bool
-     */
-    final public function delete($user): bool
-    {
-        if (!$this->canDelete)
-        {
-            return false;
-        }
-
-        $permission = PoliciesService::getPermissionName($this->modelClass, self::DELETE);
-
-        return $user?->can($permission);
-    }
-
-    /**
-     * @return array
-     */
-    final public function getAbilities(): array
-    {
-        return [
-            self::CREATE => $this->canCreate,
-            self::DELETE => $this->canDelete,
-            self::UPDATE => $this->canUpdate,
-            self::VIEW => $this->canView,
-        ];
     }
 
     /**
@@ -164,16 +151,53 @@ abstract class AbstractPolicy
      *
      * @return bool
      */
-    final public function view($user): bool
+    final public function delete($user): bool
     {
-        if (!$this->canView)
+        if (!$this->canDelete)
         {
             return false;
         }
 
-        $permission = PoliciesService::getPermissionName($this->modelClass, self::VIEW);
+        $permission = PoliciesService::getPermissionName($this->modelClass, self::DELETE);
 
         return $user?->can($permission);
+    }
+
+    #endregion
+
+    #region PUBLIC METHODS
+
+    /**
+     * @return array
+     */
+    final public function getAbilities(): array
+    {
+        return [
+            self::CREATE => $this->canCreate,
+            self::DELETE => $this->canDelete,
+            self::UPDATE => $this->canUpdate,
+            self::VIEW => $this->canView,
+        ];
+    }
+
+    /**
+     * @return boolean
+     */
+    final public function hasAbility(string $ability): bool
+    {
+        switch ($ability)
+        {
+            case self::CREATE:
+                return $this->canCreate;
+            case self::DELETE:
+                return $this->canDelete;
+            case self::UPDATE:
+                return $this->canUpdate;
+            case self::VIEW:
+                return $this->canView;
+            default:
+                return true;
+        }
     }
 
     #endregion
