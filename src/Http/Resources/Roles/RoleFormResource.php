@@ -25,7 +25,7 @@ use Narsil\Tree\Http\Resources\NestedNodeResource;
  *
  * @author Jonathan Rigaux
  */
-class MenuFormResource extends AbstractFormResource
+class RoleFormResource extends AbstractFormResource
 {
     #region CONSTRUCTOR
 

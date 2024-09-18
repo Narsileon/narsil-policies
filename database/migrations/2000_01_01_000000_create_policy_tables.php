@@ -84,10 +84,10 @@ return new class extends Migration
                 ->string(Role::SLUG)
                 ->unique();
             $table
+                ->trans(Role::LABEL);
+            $table
                 ->integer(Role::LEVEL)
                 ->default(0);
-            $table
-                ->trans(Role::LABEL);
             $table
                 ->timestamps();
         });
