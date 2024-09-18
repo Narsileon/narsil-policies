@@ -7,7 +7,9 @@ namespace Narsil\Policies;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Narsil\Policies\Commands\SyncPermissionsCommand;
+use Narsil\Policies\Models\Permission;
 use Narsil\Policies\Models\Role;
+use Narsil\Policies\Policies\PermissionPolicy;
 use Narsil\Policies\Policies\RolePolicy;
 
 #endregion
@@ -82,6 +84,7 @@ final class NarsilPoliciesServiceProvider extends ServiceProvider
      */
     private function bootPolicies(): void
     {
+        Gate::policy(Permission::class, PermissionPolicy::class);
         Gate::policy(Role::class, RolePolicy::class);
     }
 
