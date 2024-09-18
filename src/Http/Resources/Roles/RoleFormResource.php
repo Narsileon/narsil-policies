@@ -10,6 +10,7 @@ use Narsil\Forms\Builder\Elements\FormCard;
 use Narsil\Forms\Builder\Elements\FormTab;
 use Narsil\Forms\Builder\Elements\FormTable;
 use Narsil\Forms\Builder\Elements\FormTabs;
+use Narsil\Forms\Builder\Inputs\FormNumber;
 use Narsil\Forms\Builder\Inputs\FormString;
 use Narsil\Forms\Builder\Inputs\FormTrans;
 use Narsil\Forms\Http\Resources\AbstractFormResource;
@@ -85,7 +86,7 @@ class RoleFormResource extends AbstractFormResource
                             (new FormCard())
                                 ->children([
                                     (new FormString(Role::SLUG)),
-                                    (new FormString(Role::LEVEL)),
+                                    (new FormNumber(Role::LEVEL)),
                                     (new FormTrans(Role::LABEL)),
 
                                 ]),

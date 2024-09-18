@@ -30,6 +30,10 @@
 		},
 		{
 			"type": "vcs",
+			"url": "git@github.com:Narsileon/narsil-menus.git"
+		},
+		{
+			"type": "vcs",
 			"url": "git@github.com:Narsileon/narsil-settings.git"
 		},
 		{
@@ -39,6 +43,14 @@
 		{
 			"type": "vcs",
 			"url": "git@github.com:Narsileon/narsil-tables.git"
+		},
+		{
+			"type": "vcs",
+			"url": "git@github.com:Narsileon/narsil-tiptap.git"
+		},
+		{
+			"type": "vcs",
+			"url": "git@github.com:Narsileon/narsil-tree.git"
 		},
 		{
 			"type": "vcs",
