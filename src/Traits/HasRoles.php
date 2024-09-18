@@ -46,7 +46,7 @@ trait HasRoles
         return $this
             ->{IHasRoles::RELATIONSHIP_ROLES}
             ->sortByDesc(Role::LEVEL)
-            ->first()?->{Role::NAME};
+            ->first()?->{Role::SLUG};
     }
 
     #endregion
@@ -150,7 +150,7 @@ trait HasRoles
      */
     final public function hasPermission(string $permission): bool
     {
-        $hasPermission = $this->getPermissions()->contains(Permission::NAME, $permission);
+        $hasPermission = $this->getPermissions()->contains(Permission::SLUG, $permission);
 
         return $hasPermission;
     }
@@ -172,7 +172,7 @@ trait HasRoles
         }
         else if (is_string($role))
         {
-            $hasRole = $this->{IHasRoles::RELATIONSHIP_ROLES}->contains(Role::NAME, $role);
+            $hasRole = $this->{IHasRoles::RELATIONSHIP_ROLES}->contains(Role::SLUG, $role);
         }
 
         return $hasRole;
@@ -235,7 +235,7 @@ trait HasRoles
         if (count($roles) > 0)
         {
             $roleIds = Role::query()
-                ->whereIn(is_int(reset($roles)) ? Role::ID : Role::NAME, $roles)
+                ->whereIn(is_int(reset($roles)) ? Role::ID : Role::SLUG, $roles)
                 ->get()
                 ->pluck(Role::ID)
                 ->toArray();

@@ -109,7 +109,7 @@ trait HasPermissions
         }
         else if (is_string($permission))
         {
-            $hasPermission = $this->{IHasPermissions::RELATIONSHIP_PERMISSIONS}->contains(Permission::NAME, $permission);
+            $hasPermission = $this->{IHasPermissions::RELATIONSHIP_PERMISSIONS}->contains(Permission::SLUG, $permission);
         }
 
         return $hasPermission;
@@ -172,7 +172,7 @@ trait HasPermissions
         if (count($permissions) > 0)
         {
             $permissionIds = Permission::query()
-                ->whereIn(is_int(reset($permissions)) ? Permission::ID : Permission::NAME, $permissions)
+                ->whereIn(is_int(reset($permissions)) ? Permission::ID : Permission::SLUG, $permissions)
                 ->get()
                 ->pluck(Permission::ID)
                 ->toArray();

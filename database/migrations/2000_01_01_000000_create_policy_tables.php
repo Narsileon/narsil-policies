@@ -56,8 +56,10 @@ return new class extends Migration
                 ->boolean(Permission::ACTIVE)
                 ->default(true);
             $table
-                ->string(Permission::NAME)
+                ->string(Permission::SLUG)
                 ->unique();
+            $table
+                ->trans(Permission::LABEL);
             $table
                 ->string(Permission::TYPE)
                 ->default(PermissionTypeEnum::PAGE);
@@ -79,7 +81,7 @@ return new class extends Migration
                 ->boolean(Role::ACTIVE)
                 ->default(true);
             $table
-                ->string(Role::NAME)
+                ->string(Role::SLUG)
                 ->unique();
             $table
                 ->integer(Role::LEVEL)

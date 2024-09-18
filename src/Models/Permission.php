@@ -36,7 +36,7 @@ class Permission extends Model
 
         $this->fillable = [
             self::ACTIVE,
-            self::NAME,
+            self::SLUG,
             self::TYPE,
         ];
 
@@ -58,7 +58,11 @@ class Permission extends Model
     /**
      * @var string
      */
-    final public const NAME = 'name';
+    final public const LABEL = 'label';
+    /**
+     * @var string
+     */
+    final public const SLUG = 'slug';
     /**
      * @var string
      */
@@ -83,7 +87,7 @@ class Permission extends Model
         $query
             ->select([
                 self::ID,
-                self::NAME,
+                self::SLUG,
                 self::TYPE
             ])
             ->where(self::ACTIVE, true);

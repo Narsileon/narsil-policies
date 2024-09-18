@@ -30,10 +30,6 @@
 		},
 		{
 			"type": "vcs",
-			"url": "git@github.com:Narsileon/narsil-menus.git"
-		},
-		{
-			"type": "vcs",
 			"url": "git@github.com:Narsileon/narsil-settings.git"
 		},
 		{
@@ -46,10 +42,6 @@
 		},
 		{
 			"type": "vcs",
-			"url": "git@github.com:Narsileon/narsil-tree.git"
-		},
-		{
-			"type": "vcs",
 			"url": "git@github.com:Narsileon/narsil-ui.git"
 		}
 	],
@@ -57,7 +49,6 @@
 		"php": "^8.2",
 		"laravel/framework": "^11.3",
 		"narsil/localization": "dev-main",
-		"narsil/menus": "dev-main",
 		"narsil/tables": "dev-main"
 	},
 	"require-dev": {

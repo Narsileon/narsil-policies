@@ -52,7 +52,7 @@ class Role extends Model implements IHasPermissions, IHasTranslations
             self::ACTIVE,
             self::LABEL,
             self::LEVEL,
-            self::NAME,
+            self::SLUG,
         ];
 
         parent::__construct($attributes);
@@ -81,7 +81,7 @@ class Role extends Model implements IHasPermissions, IHasTranslations
     /**
      * @var string
      */
-    final public const NAME = 'name';
+    final public const SLUG = 'slug';
 
     /**
      * @var string
@@ -121,7 +121,7 @@ class Role extends Model implements IHasPermissions, IHasTranslations
     {
         return collect($this->{self::RELATIONSHIP_PERMISSIONS})
             ->where(Permission::TYPE, '=', PermissionTypeEnum::FUNCTION)
-            ->pluck(Permission::NAME)
+            ->pluck(Permission::SLUG)
             ->toArray();
     }
 
@@ -132,7 +132,7 @@ class Role extends Model implements IHasPermissions, IHasTranslations
     {
         return collect($this->{self::RELATIONSHIP_PERMISSIONS})
             ->where(Permission::TYPE, '=', PermissionTypeEnum::PAGE)
-            ->pluck(Permission::NAME)
+            ->pluck(Permission::SLUG)
             ->toArray();
     }
 
@@ -169,7 +169,7 @@ class Role extends Model implements IHasPermissions, IHasTranslations
             ->select([
                 self::ID,
                 self::LABEL,
-                self::NAME,
+                self::SLUG,
             ])
             ->where(self::ACTIVE, true);
     }

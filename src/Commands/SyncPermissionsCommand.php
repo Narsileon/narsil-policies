@@ -64,7 +64,7 @@ class SyncPermissionsCommand extends Command
         foreach ($permissions as $permission)
         {
             Permission::firstOrCreate([
-                Permission::NAME => $permission,
+                Permission::SLUG => $permission,
                 Permission::TYPE => PermissionTypeEnum::FUNCTION->value,
             ]);
         }
@@ -81,7 +81,7 @@ class SyncPermissionsCommand extends Command
         $permission = PoliciesService::getPermissionName($modelClass, $ability);
 
         Permission::firstOrCreate([
-            Permission::NAME => $permission,
+            Permission::SLUG => $permission,
             Permission::TYPE => PermissionTypeEnum::PAGE->value,
         ]);
     }
@@ -131,7 +131,7 @@ class SyncPermissionsCommand extends Command
         foreach ($permissions as $permission)
         {
             Permission::firstOrCreate([
-                Permission::NAME => $permission,
+                Permission::SLUG => $permission,
                 Permission::TYPE => PermissionTypeEnum::PAGE->value,
             ]);
         }
