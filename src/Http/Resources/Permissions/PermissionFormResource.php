@@ -45,7 +45,7 @@ class PermissionFormResource extends AbstractFormResource
             (new FormCard())
                 ->children([
                     (new FormString(Role::SLUG))
-                        ->readonly(),
+                        ->readOnly(),
                     (new FormTrans(Role::LABEL)),
                 ]),
         ];
