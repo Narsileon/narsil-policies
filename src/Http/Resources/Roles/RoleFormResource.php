@@ -4,7 +4,6 @@ namespace Narsil\Policies\Http\Resources\Roles;
 
 #region USE
 
-use Illuminate\Http\Request;
 use Narsil\Forms\Builder\AbstractFormNode;
 use Narsil\Forms\Builder\Elements\FormCard;
 use Narsil\Forms\Builder\Elements\FormTab;
@@ -14,10 +13,7 @@ use Narsil\Forms\Builder\Inputs\FormNumber;
 use Narsil\Forms\Builder\Inputs\FormString;
 use Narsil\Forms\Builder\Inputs\FormTrans;
 use Narsil\Forms\Http\Resources\AbstractFormResource;
-use Narsil\Menus\Models\Menu;
-use Narsil\Menus\Models\MenuHasNode;
 use Narsil\Policies\Models\Role;
-use Narsil\Tree\Http\Resources\NestedNodeResource;
 
 #endregion
 
@@ -42,35 +38,6 @@ class RoleFormResource extends AbstractFormResource
 
     #endregion
 
-    #region PUBLIC METHODS
-
-    /**
-     * @param Request $request
-     *
-     * @return array
-     */
-    public function toArray(Request $request): array
-    {
-
-        if (!$this->resource)
-        {
-            return [];
-        }
-
-        $attributes = parent::toArray($request);
-
-        $nodes = $this->resource
-            ->load(Menu::RELATIONSHIP_NODES . '.' . MenuHasNode::RELATIONSHIP_CHILDREN)
-            ->{Menu::RELATIONSHIP_NODES}
-            ->where(MenuHasNode::PARENT_ID, null);
-
-        $attributes[Menu::RELATIONSHIP_NODES] = NestedNodeResource::collection($nodes);
-
-        return $attributes;
-    }
-
-    #endregion
-
     #region PROTECTED METHODS
 
     /**
@@ -81,7 +48,8 @@ class RoleFormResource extends AbstractFormResource
         return [
             (new FormTabs())
                 ->children([
-                    (new FormTab('Main'))
+                    (new FormTab('main'))
+                        ->label('Main')
                         ->children([
                             (new FormCard())
                                 ->children([
@@ -91,7 +59,8 @@ class RoleFormResource extends AbstractFormResource
 
                                 ]),
                         ]),
-                    (new FormTab('Permissions'))
+                    (new FormTab('permissions'))
+                        ->label('Permissions')
                         ->children([
                             (new FormCard())
                                 ->children([
