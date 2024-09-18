@@ -54,9 +54,8 @@ class RoleFormResource extends AbstractFormResource
                             (new FormCard())
                                 ->children([
                                     (new FormString(Role::SLUG)),
-                                    (new FormNumber(Role::LEVEL)),
                                     (new FormTrans(Role::LABEL)),
-
+                                    (new FormNumber(Role::LEVEL)),
                                 ]),
                         ]),
                     (new FormTab('permissions'))
