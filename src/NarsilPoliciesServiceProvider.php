@@ -104,8 +104,8 @@ final class NarsilPoliciesServiceProvider extends ServiceProvider
     private function bootTranslations(): void
     {
         $this->loadJsonTranslationsFrom(__DIR__ . '/../lang', 'policies');
+        $this->loadTranslationsFrom(__DIR__ . '/../lang', 'policies');
     }
-
 
     #endregion
 }
